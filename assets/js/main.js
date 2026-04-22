@@ -550,7 +550,7 @@
       ScrollTrigger.create({
         trigger: panel,
         start: "top top",
-        end: "+=25%",
+        end: "+=30%",
         pin: true,
         pinSpacing: false,
       });

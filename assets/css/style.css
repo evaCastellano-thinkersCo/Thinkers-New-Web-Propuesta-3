@@ -8680,16 +8680,18 @@ a:hover {
     width: 100%;
 }
 
-.caja .texto p {
+.caja .texto p,
+.caja .texto ul {
     margin-right: 50px;
 }
 
-.caja .texto p:first-child {
+.caja .texto p {
     font-size: 24px;
     width: 60%;
 }
 
-.caja .texto p:last-child {
+.caja .texto ul {
     font-size: 16px;
     width: 40%;
+    list-style: none;
 }
