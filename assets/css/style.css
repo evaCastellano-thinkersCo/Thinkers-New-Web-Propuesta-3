@@ -8633,9 +8633,9 @@ a:hover {
     }
 }
 
+/*  */
 
-/*# sourceMappingURL=style.css.map */
-.ejes-actuacion-texto{
+.ejes-actuacion-texto {
     color: #FD6431;
     margin: 50px 50px 20px;
 }
@@ -8695,3 +8695,96 @@ a:hover {
     width: 40%;
     list-style: none;
 }
+
+/*  */
+.accordion-item {
+    display: flex;
+}
+
+.accordion-header button {
+    transform: rotate(-90deg);
+}
+
+.flex {
+    display: flex;
+}
+
+.accordion .blanco {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90px;
+    height: 500px;
+    z-index: 999;
+    align-self: stretch;
+
+}
+
+.accordion h5 {
+    display: inline-block;
+    transform: rotate(-90deg);
+    width: max-content;
+    margin: 0;
+    margin-bottom: 100px;
+    font-weight: 500;
+}
+
+.accordion img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.accordion .texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+}
+
+.accordion .texto div:first-child {
+    padding: 90px 20px 30px;
+}
+
+.accordion .naranja{
+    padding: 20px 30px;
+    color: var(--common-color-white);
+    border: 1px solid black;
+}
+
+.accordion button{
+    border: 0;
+}
+
+/* animaciones */
+
+
+.insight {
+    display: flex;
+
+  overflow: hidden;
+  position: relative;
+}
+
+/* elementos internos con transición */
+.insight .imagen,
+.insight .texto {
+  transition: transform 0.3s linear, opacity 0.6s ease;
+}
+
+/* estado oculto */
+.insight.collapsed .imagen,
+.insight.collapsed .texto {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* opcional: evitar interacción */
+.insight.collapsed .imagen,
+.insight.collapsed .texto {
+  pointer-events: none;
+}
+
+
+
+
