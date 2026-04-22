@@ -8702,11 +8702,17 @@ a:hover {
 }
 
 .accordion-header button {
+    display: inline-block;
     transform: rotate(-90deg);
+    width: max-content;
+    margin: 0;
+    margin-bottom: 100px;
+    font-weight: 500;
 }
 
 .flex {
     display: flex;
+    justify-content: center;
 }
 
 .accordion .blanco {
@@ -8757,7 +8763,7 @@ a:hover {
 }
 
 .container.accordion{
-    margin: 0 30px;
+    margin: 0 20px;
 }
 
 /* animaciones */
