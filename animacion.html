@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Flipper</title>
+
+  <style>
+    .container {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-family: Arial, sans-serif;
+    }
+
+    .static {
+      white-space: nowrap;
+    }
+
+    .wrapper {
+      position: relative;
+      height: 40px;
+      overflow: hidden;
+      width: 200px;
+    }
+
+    .word {
+      position: absolute;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .current {
+      transform: translateY(0);
+    }
+
+    .next {
+      transform: translateY(100%);
+    }
+
+    .animate .current {
+      transform: translateY(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .animate .next {
+      transform: translateY(0);
+      transition: transform 0.5s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <span class="static">Contigo&nbsp;</span>
+
+    <div class="wrapper">
+      <div class="word current">innovamos</div>
+      <div class="word next">reimaginamos</div>
+    </div>
+  </div>
+
+  <script>
+    const words = ["innovamos", "reimaginamos", "pensamos"];
+
+    let index = 0;
+
+    const wrapper = document.querySelector(".wrapper");
+    const current = document.querySelector(".current");
+    const next = document.querySelector(".next");
+
+    setInterval(() => {
+      const nextIndex = (index + 1) % words.length;
+
+      next.textContent = words[nextIndex];
+
+      wrapper.classList.add("animate");
+
+      setTimeout(() => {
+        current.textContent = words[nextIndex];
+
+        wrapper.classList.remove("animate");
+
+        void wrapper.offsetWidth;
+
+        index = nextIndex;
+      }, 500);
+
+    }, 1000);
+  </script>
+
+</body>
+
+</html>
