@@ -8746,14 +8746,18 @@ a:hover {
     padding: 90px 20px 30px;
 }
 
-.accordion .naranja{
+.accordion .naranja {
     padding: 20px 30px;
     color: var(--common-color-white);
     border: 1px solid black;
 }
 
-.accordion button{
+.accordion button {
     border: 0;
+}
+
+.container.accordion{
+    margin: 0 30px;
 }
 
 /* animaciones */
@@ -8761,30 +8765,25 @@ a:hover {
 
 .insight {
     display: flex;
-
-  overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    position: relative;
 }
 
 /* elementos internos con transición */
 .insight .imagen,
 .insight .texto {
-  transition: transform 0.3s linear, opacity 0.6s ease;
+    transition: transform 0.3s linear, opacity 0.3s linear;
 }
 
 /* estado oculto */
 .insight.collapsed .imagen,
 .insight.collapsed .texto {
-  transform: translateX(-100%);
-  opacity: 0;
+    transform: translateX(-100%);
+    opacity: 0;
 }
 
 /* opcional: evitar interacción */
 .insight.collapsed .imagen,
 .insight.collapsed .texto {
-  pointer-events: none;
+    pointer-events: none;
 }
-
-
-
-

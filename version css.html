@@ -268,7 +268,7 @@
     <div class="cs_height_150 cs_height_lg_20"></div>
 
     <!-- start insights -->
-<!-- FIXME:
+    <!-- FIXME:
 - arreglar el modo collapse
 - animacion de show 
 -->
@@ -315,7 +315,7 @@
         <!-- inicio bloque de texto -->
         <div class="texto dark">
           <div>
-            <p>Insight #1</p>
+            <p>Insight #2</p>
             <h2>El nuevo consumo</h2>
             <p>
               Cinco tendencias que redefinen la forma en que las personas compran, acceden y se relacionan con las
@@ -343,7 +343,7 @@
         <!-- inicio bloque de texto -->
         <div class="texto dark">
           <div>
-            <p>Insight #1</p>
+            <p>Insight #3</p>
             <h2>El nuevo consumo</h2>
             <p>
               Cinco tendencias que redefinen la forma en que las personas compran, acceden y se relacionan con las
@@ -555,38 +555,63 @@
   <script src="/assets/js/main.js"></script>
 
   <script>
-    document.querySelectorAll('.insight button').forEach(btn => {
+    document.querySelectorAll('.insight .blanco').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
 
         const insight = btn.closest('.insight');
-        const isCollapsed = insight.classList.contains('collapsed');
+        const accordion = btn.closest('.accordion');
 
-        insight.classList.toggle('collapsed');
+        const isAlreadyOpen = !insight.classList.contains('collapsed');
 
-        // Si se está colapsando, esperar a que termine la animación
-        if (!isCollapsed) {
-          const onTransitionEnd = (event) => {
-            // Evitar múltiples triggers (solo una vez)
-            if (event.target.closest('.insight') !== insight) return;
+        // 1. cerrar todos
+        accordion.querySelectorAll('.insight').forEach(item => {
+          if (item !== insight) {
+            item.classList.add('collapsed');
 
-            const imagen = insight.querySelector('.imagen');
-            const texto = insight.querySelector('.texto');
+            const img = item.querySelector('.imagen');
+            const txt = item.querySelector('.texto');
 
-            if (imagen) imagen.style.display = 'none';
-            if (texto) texto.style.display = 'none';
+            if (img) {
+              setTimeout(() => {
+                img.style.display = 'none';
+              }, 300);
+            }
+            if (txt){
+              setTimeout(() => {
+                txt.style.display = 'none';
+              }, 300);
+            }
+            
+          }
+        });
 
-            insight.removeEventListener('transitionend', onTransitionEnd);
-          };
+        // 2. toggle del actual
+        if (isAlreadyOpen) {
+          insight.classList.add('collapsed');
 
-          insight.addEventListener('transitionend', onTransitionEnd);
+          const img = insight.querySelector('.imagen');
+          const txt = insight.querySelector('.texto');
+
+          if (img) {
+            setTimeout(() => {
+              img.style.display = 'none';
+            }, 300);
+          }
+          if (txt){
+            setTimeout(() => {
+              txt.style.display = 'none';
+            }, 300);
+          }
+          
         } else {
-          // Si se reabre, restaurar
-          const imagen = insight.querySelector('.imagen');
-          const texto = insight.querySelector('.texto');
+          insight.classList.remove('collapsed');
 
-          if (imagen) imagen.style.display = '';
-          if (texto) texto.style.display = '';
+          const img = insight.querySelector('.imagen');
+          const txt = insight.querySelector('.texto');
+
+          if (img) img.style.display = '';
+          if (txt) txt.style.display = '';
         }
       });
     });
